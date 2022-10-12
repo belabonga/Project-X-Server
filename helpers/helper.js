@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const secretKey = 'SECRETBANGETNIH';
+const secretKey = 'PLEASEGODSAVEME';
 
 const hashPass = (pass) => bcrypt.hashSync(pass, bcrypt.genSaltSync(10));
 const comparePass = (pass, hash) => bcrypt.compareSync(pass, hash);

@@ -9,7 +9,7 @@ const cors          = require('cors')
     , app           = express()
     
     // ROUTE 
-    , route    = require('');
+    , route    = require('./routers/main');
 
 app.use(cors())
 app.use(express.urlencoded({ extended : false }))

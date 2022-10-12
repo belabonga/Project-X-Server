@@ -1,5 +1,5 @@
-const { comparePass, signToken } = require('../../helpers/helper')
-    , { User }                   = require('../../models/')
+const { comparePass, signToken } = require('../helpers/helper')
+    , { User }                   = require('../models')
     , { OAuth2Client }           = require("google-auth-library")
     , chalk                      = require('chalk');
 
