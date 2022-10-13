@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Transaction.belongsTo(models.User)
     }
   }
   Transaction.init({
     UserId: DataTypes.INTEGER,
-    GameId: DataTypes.INTEGER,
     total_price: DataTypes.INTEGER
   }, {
     sequelize,

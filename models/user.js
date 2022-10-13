@@ -5,6 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
+      User.hasMany(models.Transaction)
     }
   }
   User.init({
@@ -56,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
           msg : "Username is Required"
         }
       }
-    },
+    }
+  }, {
     sequelize,
     modelName: 'User',
   });

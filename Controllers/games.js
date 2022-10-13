@@ -19,9 +19,31 @@ class ControllerGames {
                     'Client-ID' : process.env.TWITCH_CLIENT_ID,
                     'Authorization' : `Bearer ${process.env.TWITCH_ACCESS_TOKEN}`,
                 },
-                data: "fields name, genres, category, release_dates, summary, cover, involved_companies, url, storyline, tags, videos; limit 20;"
+                data: "fields name, genres.name, release_dates.human, summary, cover.url, involved_companies.company.name, url, videos; limit 20;"
               })
+              
+              res.status(200).json(games.data)
+        } catch (error) {
+            next(error)
+            console.log('ERROR FROM GET ALL GAMES CONTROLLER : ', error);
+        }
+    }
 
+    static async readOneGames (req, res, next){
+        try {
+            const { id } = req.params
+            const games = await axios({
+                url: `${igdbUrl}/games`,
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Client-ID' : process.env.TWITCH_CLIENT_ID,
+                    'Authorization' : `Bearer ${process.env.TWITCH_ACCESS_TOKEN}`,
+                },
+                data: `fields name, genres.name, release_dates.human, summary, cover.url, involved_companies.company.name, url, videos; where id = ${id};`
+              })
+              
+              res.status(200).json(games.data)
         } catch (error) {
             next(error)
             console.log('ERROR FROM GET ALL GAMES CONTROLLER : ', error);

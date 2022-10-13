@@ -9,16 +9,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       UserId: {
-        type: Sequelize.INTEGER,
         allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onUpdate : "cascade",
+        onDelete : "cascade"
       },
-      GameId: {
-        type: Sequelize.INTEGER,
+      name: {
+        type: Sequelize.STRING,
         allowNull: false,
+        defaultValue: 5
       },
-      total_price: {
+      cover: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: 5
+      },
+      price: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        defaultValue: 5
       },
       createdAt: {
         allowNull: false,
