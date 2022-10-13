@@ -19,4 +19,6 @@ route.use('/games', games)
 route.use('/transactions', transaction)
 
 // ERROR HELPER
-route.use(Error)
+// route.use(Error)
+
+module.exports = route
